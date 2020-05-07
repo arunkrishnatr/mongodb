@@ -1,0 +1,75 @@
+Document databases pair each key with a complex data structure commonly with a block of XML or JSON termed as a document.Some of the commonly used Document Databases are MongoDB, Couchbase, OrientDB, and RavenDB.
+The key features of Document Databases include:
+Flexible data modeling:
+Document Databases are best suited for modern application data models like web, mobile, social, and IoT-based applications. Database eliminates the need for force-fit relational data models.
+Fast querying:
+Document databases have strong query engines and indexing features that provides fast and efficient retrieval of data.
+Faster write performance:
+Document databases prioritize write availability over strict data consistency.
+JSON Format - an Overview
+JSON is JavaScript Object Notation. It is an alternative to XML, primarily to transmit data.
+
+The two primary parts of JSON are keys and values.
+
+Key: A key is a string enclosed with quotation marks.
+
+Value: A value can be a string, number, boolean expression, array, or object.
+
+Key/Value Pair: A key followed by a colon (:) and a value is a key/value pair.
+{
+ '_id' : 1234,
+ 'fullname' : {'firstname':'Arun', 'lastname' : 'krishna'},
+ 'Projects' : [' 'X' ],
+}
+BSON - an Overview
+BSON can be defined as a binary encoded serialization of JSON.BSON supports embedding objects and arrays within other objects and arrays.MongoDB can even 'reach inside' BSON objects to build indexes and match objects against query expressions on both top-level and nested BSON keys.
+
+Suppose we have a document that contains {"Study":"MongoDB"}. It will be stored in BSON format as shown below:
+
+ \x32\x00\x00\x00     //document size
+ \x06                 //String Types
+ Study\x00            //name of field 
+\x16\x00\x00\x00MongoDB\x00  //value 
+ \x00                   // Ending 
+
+
+Traversable: BSON can be traversed very easily.
+Efficient: Due to the usage of C data types, encoding and decoding from BSON can be per-formed accurately in most languages.
+#	where very minimal Total Cost of Ownership (TCO) is required.
+#	when a need for replication across multiple data centers globally.
+#	where rapid deployment and faster scaling are required.
+#	when a need for easy loading of data at the beginning and overtime is needed.
+#	when massive concurrency is demanded by a user.
+#	when no downtime can be tolerated.
+#	when the database needs to grow rapidly as per user needs.
+#	when high uncertainty in sizing exists.
+#	where seamless and consistent experience is expected.
+
+Following are the indexes supported in MongoDB.
+default_id: Each collection contains an index named default_id.
+Single Field: Used for Single field or sort. Indexes can be either in ascending order or descending order.
+Compound Index: Used for multiple fields.
+Geo-spacial Index: Indexes used are two dimensional and 2D sphere (geolocation).
+Multikey Index: These are used to index array data.
+
+Diagnostic Tools
+---------------
+
+mongostat:
+Utility provides a quick summary of a currently running instance and returns the counters of database operation. Counters consist of inserts, updates, deletes, cursors, and queries. It helps to troubleshoot performance issues. Example:
+mongotop:
+It helps to track the amount of time a MongoDB instance spends on writing and reading data.
+Example: To return every 30 seconds
+mongoperf:
+Iit is a tool for quickly testing disk I/O performance. It accepts configuration options in the form of a file that holds a JSON document.
+mongosniff:
+It helps to investigate MongoDB database activity. From version 3.4, it is replaced with mongoreplay. You can reproduce and investigate issues by recording and replaying the operations that trigger an issue.
+
+Core Processes
+mongo:
+Powerful interface for interactive JavaScript shell. It helps system administrators, developers to test queries and operations directly with the database.
+mongod:
+Primary process for MongoDB. This will manage data requests, control data access, and performs other background management operations.
+
+
+
